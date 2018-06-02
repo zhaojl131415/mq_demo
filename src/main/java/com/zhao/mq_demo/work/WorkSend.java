@@ -8,6 +8,12 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 public class WorkSend {
+    /**
+     *                 |-------C
+     * P---------------|
+     *                 |-------C
+     */
+
     public static final String QUEUE_NAME = "test_work_queue";
 
     public static void main(String[] args) throws IOException, TimeoutException, InterruptedException {
@@ -20,6 +26,7 @@ public class WorkSend {
 
         for (int i = 0; i < 50; i++) {
             String msg = "Hello World! Work"+i;
+            System.out.println("[WQ] send msg:"+msg);
             channel.basicPublish("", QUEUE_NAME, null, msg.getBytes());
             Thread.sleep(i * 20);
         }

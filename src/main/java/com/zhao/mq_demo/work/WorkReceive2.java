@@ -6,7 +6,7 @@ import com.zhao.mq_demo.utils.ConnectionUtils;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
-public class WorkReceive1 {
+public class WorkReceive2 {
     public static final String QUEUE_NAME = "test_work_queue";
 
     public static void main(String[] args) throws IOException, TimeoutException, InterruptedException {
@@ -23,13 +23,13 @@ public class WorkReceive1 {
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 String msg = new String(body, "utf-8");
-                System.out.println("[1] recv msg:" + msg);
+                System.out.println("[2] recv msg:" + msg);
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(1000);
                 }catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
-                    System.out.println("[1] done!");
+                    System.out.println("[2] done!");
                 }
             }
         };
