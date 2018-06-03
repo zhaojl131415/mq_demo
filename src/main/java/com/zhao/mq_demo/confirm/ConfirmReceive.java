@@ -10,7 +10,7 @@ import java.util.concurrent.TimeoutException;
  * 消费者获取消息
  */
 public class ConfirmReceive {
-    public static final String QUEUE_NAME = "test_queue_confirm";
+    public static final String QUEUE_NAME = "test_queue_confirm_p";
 
     public static void main(String[] args) throws IOException, TimeoutException, InterruptedException {
         // 获取一个连接
@@ -26,7 +26,7 @@ public class ConfirmReceive {
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 String msg = new String(body, "utf-8");
-                System.out.println("tx recv:" + msg);
+                System.out.println("confirm recv:" + msg);
             }
         };
         // 监听队列
