@@ -27,7 +27,7 @@ public class MqServiceImpl implements MqService {
 //        executorService.shutdown();
 //
 //
-        String context = "hello, " + msg + "!" + new Date();
+        String context = "hello, " + msg + " !" + new Date();
         System.out.println("Sender : " + context);
         this.amqpTemplate.convertAndSend(MqConfig.ZHAO_TEST_QUEUE, context);
     }
