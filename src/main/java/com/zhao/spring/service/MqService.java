@@ -6,4 +6,14 @@ package com.zhao.spring.service;
 public interface MqService {
 
     void sendMsg(String msg);
+
+    void sendUser();
+
+    void sendMessage(String message);
+
+    void sendError(String error);
+
+    void sendMessages(String message);
+
+    void sendFanout(String fanout);
 }
